@@ -1,26 +1,20 @@
 #!/bin/bash
 
-apiappname=BoardGamingAPI$(openssl rand -hex 5)
+apiappname=BoardGamingAPI
 
 printf "Setting username and password for Git ... (1/7)\n\n"
 
-GIT_USERNAME=gitName$Random
-GIT_EMAIL=a@b.c
+GIT_USERNAME=haseena756
+GIT_EMAIL=haseena756@gmail.com
 
 git config --global user.name "$GIT_USERNAME"
 git config --global user.email "$GIT_EMAIL"
 
 
-RESOURCE_GROUP=$(az group list --query "[0].name" -o tsv)
+RESOURCE_GROUP=cloud-shell-storage-eastus
 
 # Create App Service plan
-PLAN_NAME=myPlan
-
-
-printf "\nCreating App Service plan in FREE tier ... (2/7)\n\n"
-
-
-az appservice plan create --name $apiappname --resource-group $RESOURCE_GROUP --sku FREE --location centralus
+PLAN_NAME=ASP-cloudshellstorageeastus-b57f
 
 printf "\nCreating API App ... (3/7)\n\n"
 
@@ -30,13 +24,13 @@ az webapp create --name $apiappname --resource-group $RESOURCE_GROUP --plan $api
 printf "\nSetting the account-level deployment credentials ...(4/7)\n\n"
 
 
-DEPLOY_USER="myName1$(openssl rand -hex 5)"
-DEPLOY_PASSWORD="Pw1$(openssl rand -hex 10)"
+DEPLOY_USER=haseena756
+DEPLOY_PASSWORD=winREG10
 
 az webapp deployment user set --user-name $DEPLOY_USER --password $DEPLOY_PASSWORD
 
 
-GIT_URL="https://$DEPLOY_USER@$apiappname.scm.azurewebsites.net/$apiappname.git"
+GIT_URL=https://github.com/haseena756/mslearn-improve-api-performance
 
 # Create Web App with local-git deploy
 
