@@ -1,6 +1,6 @@
 #!/bin/bash
 
-apiappname=BoardGamingAPI
+apiappname=BoardGamingAPI25
 
 printf "Setting username and password for Git ... (1/7)\n\n"
 
